@@ -6,10 +6,12 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import ru.esseigor.SpringDB.mapper.UserMapper;
 import ru.esseigor.SpringDB.model.UserInfo;
 
+@Repository
 public class UserDAO extends JdbcDaoSupport{
 
 	@Autowired
