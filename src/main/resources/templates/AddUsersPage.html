@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Users</title>
+	<style>
+	th, td {padding: 5px;}
+	</style>
+</head>
+<body>
+	<!-- Include _menu.html -->
+    <th:block th:include="/_menu"></th:block>
+    <h2>Add Users</h2>
+	
+	<form th:action="@{/AddUsers}" th:object="${userInfoForm}" method="POST">
+		Login:
+		<input type="text" th:field="*{login}"/>
+		<br/>
+		FIO:
+		<input type="text" th:field="*{fio}"/>
+		<br/>
+		<input type="submit" value="Add"/>  
+      </form>
+	
+</body>
+</html>

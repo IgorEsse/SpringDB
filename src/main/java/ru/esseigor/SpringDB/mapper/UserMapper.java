@@ -9,6 +9,7 @@ import ru.esseigor.SpringDB.model.UserInfo;
 public class UserMapper implements RowMapper<UserInfo>{
 
 	public static final String BASE_SQL = "SELECT u.id id, u.login login, u.fio fio FROM db_app.users u ";
+	public static final String INSERT_BASE_SQL = "INSERT INTO db_app.users(login, fio) VALUES(?, ?)";
 	
 	@Override
 	public UserInfo mapRow(ResultSet rs, int rowNum) throws SQLException {

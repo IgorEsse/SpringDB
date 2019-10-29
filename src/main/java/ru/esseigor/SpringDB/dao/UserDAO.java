@@ -34,4 +34,10 @@ public class UserDAO extends JdbcDaoSupport{
 		List<UserInfo> list = this.getJdbcTemplate().query(sql, params, mapper);
 		return list;
 	}
+	
+	public void addUser(String login, String fio) {
+		String sql = UserMapper.INSERT_BASE_SQL;
+		Object[] params = new Object[] {login, fio};
+		this.getJdbcTemplate().update(sql,params);
+	}
 }

@@ -44,4 +44,20 @@ public class MainController {
 		model.addAttribute("UserInfos",list);
 		return "UsersPage";
 	}
+	
+	@RequestMapping(value = "/AddUsers", method = RequestMethod.GET)
+	public String addUsers(Model model) {
+		UserInfoForm userInfoForm = new UserInfoForm();
+		model.addAttribute("userInfoForm",userInfoForm);
+		return "AddUsersPage";
+	}
+	
+	@RequestMapping(value = "/AddUsers", method = RequestMethod.POST)
+	public String addUsers(Model model,UserInfo user) {
+		System.out.println("Получен запрос с параметром: login = " + user.getLogin() + " fio = " + user.getFio());
+		userDAO.addUser(user.getLogin(), user.getFio());
+		List<UserInfo> list = userDAO.getUsers();
+		model.addAttribute("UserInfos",list);
+		return "UsersPage";
+	}
 }
