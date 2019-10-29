@@ -27,11 +27,11 @@ public class UserDAO extends JdbcDaoSupport{
 		return list;
 	}
 	
-	public UserInfo findUser(Long id) {
-		String sql = UserMapper.BASE_SQL + " WHERE u.id = ?";
-		Object[] params = new Object[] {id};
+	public List<UserInfo> findUser(String login) {
+		String sql = UserMapper.BASE_SQL + " WHERE u.login = ?";
+		Object[] params = new Object[] {login};
 		UserMapper mapper = new UserMapper();
-		UserInfo user = this.getJdbcTemplate().queryForObject(sql, params, mapper);
-		return user;
+		List<UserInfo> list = this.getJdbcTemplate().query(sql, params, mapper);
+		return list;
 	}
 }
